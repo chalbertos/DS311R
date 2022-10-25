@@ -1,14 +1,11 @@
 ---
 title: "DS311 - Basic R Lab Exercise"
-author: "Chris Albert"
-date: "10/19/2022"
+author: "Your Name"
+date: "8/23/2022"
 output:
   html_document: default
   pdf_document: default
 subtitle: R Lab Exercise
-editor_options: 
-  markdown: 
-    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -19,7 +16,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Section 1 - Data Type
 
-**Key Functions** - typeof() - as.numeric() - as.character()
+**Key Functions**
+- typeof()
+- as.numeric()
+- as.charater()
 
 ### Numeric
 
@@ -66,7 +66,7 @@ typeof(l2)
 
 ### Transforming Numerics and Characters
 
-```{r}
+``` {r}
 # Transforming numeric into characters
 num <- 10
 numToChar <- as.character(num)
@@ -82,35 +82,33 @@ paste("char Type: ", typeof(num), " | charToNum: ", typeof(numToChar))
 
 Complete the following tasks:
 
-```{r}
+``` {r}
 # Check the data type of the following variables
 a <- as.integer(500)
 b <- as.double(500)
 c <- as.character(500)
 
 # Enter your code here!
-
 typeof(a)
-typeof(b)
-typeof(c)
+
 
 # Check the data type of the following variable
 d <- a / b
 
-# Enter your code here!
-typeof(d)
 
+# Enter your code here!
+
+typeof(d)
 
 ```
 
-------------------------------------------------------------------------
+***
 
 ## Section 2 - Data Structure
-
--   is.vector()
--   is.matrix
--   cbind()
--   as.data.frame()
+- is.vector()
+- is.matrix
+- cbind()
+- as.data.frame()
 
 ### Vector
 
@@ -149,14 +147,14 @@ is.matrix(m2)
 
 ### Challenge:
 
-1.  Create a vector of the 26 alphabet lower case letters in sequence.
-2.  Create a 2 by 13 matrix for the 26 English upper case letter in
-    sequence.
+1. Create a vector of the 26 alphabet lower case letters in sequence. 
+2. Create a 2 by 13 matrix for the 26 English upper case letter in sequence.
 
 Hint: Check out the "letters" and "LETTERS" key words in R.
 
 ```{r}
 # Enter your code here.
+
 v1 <- c(letters)
 v1
 is.vector(v1)
@@ -164,6 +162,7 @@ is.vector(v1)
 n1 <- matrix(c(LETTERS), nrow = 13)
 n1
 is.matrix(n1)
+
 ```
 
 ### DataFrame
@@ -183,70 +182,89 @@ df2 <- as.data.frame(cbind(vNumeric, vCharacter, vLogical))
 df2  # Makes a data frame with three different data types
 ```
 
-------------------------------------------------------------------------
+***
 
 ## Section 3 - Setup Working Directory and Installing Packages
 
-**Key Functions:** - getwd() - setwd() - install.packages() - library()
+**Key Functions:**
+- getwd()
+- setwd()
+- install.packages()
+- library()
 
 ### Setting up your working directory
 
-```{r}
+``` {r}
 # Check your current working directory
 # wd1 <- getwd()
 # paste("Current Working Directory: ", wd1)
-getwd()
+ wd1 <- getwd()
+paste("Current Working Directory: ", wd1)
 # Setting the working directory for a project
 # setwd("c://.../project")
 # wd2 <- getwd()
 # paste("Current Working Directory: ", wd2)
-setwd("/Users/chrisalbert/Documents")
-getwd()
+```
 
-### Installing packages
+### Installing and Loading Packages
 
-
+```{r, include=FALSE}
 # Install a new package, note the quotation marks
-# install.packages("dplyr")
-# install.packages("dplyr")
-# Loading the packageh, note no quotation marks
+# install.packages("mass")
+
+# Install multiple packages at once
+# install.packages(c("dplyr", "ggplot2"))
+# Loading the package, note no quotation marks
 # library(dplyr)
-   library(dplyr)
+
 # Checking the package version
-# pacakgeVersion("dplyr")
- packageVersion("dplyr")
+# packageVersion("dplyr")
+
+# List all functions in a package
+# ls("package:ggplot2")
+
+# Loading a function from package
+# ggplot2::geom_line
+
+# Update all packages
+# update.packages()
+
+# Unload a package
+# detach(package:ggplot2, unload=TRUE)
+
+# Help function
+# help(dplyr)
+
 # Checking the session info
 # sessionInfo()
-sessionInfo()
+```
 
-------------------------------------------------------------------------
+***
 
 ## Section 4 - Problem Solving
 
-#Write the code that accomplish the following tasks:
+Write the code that accomplish the following tasks:
 
-#Part a: Assign 4 to variable x
+Part a: Assign 4 to variable x
 
-#Part b: Assign 12 to variable y
+Part b: Assign 12 to variable y
 
-#Part c: Print both x and y to check their values
+Part c: Print both x and y to check their values
 
-#Part d: Divide y by x and assign it to variable z
+Part d: Divide y by x and assign it to variable z
 
-#part e: Print a statement to report your answer in Part d.
+part e: Print a statement to report your answer in Part d.
 
-#Once you finished and knit the RMarkdown file into html file, you should
-#be able to see the message "Congratulation!! You completed the first
-# exercise in this section!!" in the html document.
+Once you finished and knit the RMarkdown file into html file, you should be able to see the message "Congratulation!!  You completed the first exercise in this section!!" in the html document.
 
-
+```{r}
 # Write your code here!
 # Part a
 x<-c(4)
-x
+
 # Part b
 y<-c(12)
-y
+
 # Part c
 print (x)
 print(y)
@@ -254,6 +272,7 @@ print(y)
 # Part d
 z<-c(y/x)
 z
+
 # Part e
 print(paste("y divided by x is equal to ", z))
 
@@ -269,3 +288,4 @@ if (exists("x") == TRUE | exists("y") == TRUE | exists("z") == TRUE){
   print("You did not complete the last problem!")
 }
 ```
+
